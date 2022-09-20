@@ -1,0 +1,22 @@
+.banner{
+    background-image: url(https://firebasestorage.googleapis.com/v0/b/hoteltestfront.appspot.com/o/Banner.jpg?alt=media&token=a041197a-d564-442f-a3e2-b391cc1418e0);
+    background-position: top center;
+    background-size: cover;
+    padding: 5% 50% 10% 5%;
+    position: relative;
+    z-index:1 ;
+    }
+    
+    
+    .banner::after{
+    
+        content: '';
+        background-color: black;
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        opacity: 0.4;
+        width: 100%;
+        height: 100%;
+    }

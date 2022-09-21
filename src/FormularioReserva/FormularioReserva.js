@@ -1,69 +1,130 @@
+import { useState } from "react"
+import { ServicioReserva } from "../services/ServicioReserva"
 export function FormularioReserva(){
+
+    const[entrada,setEntrada]=useState("")
+    const[salida,setSalida]=useState("")
+    const[ninos,setNinos]=useState("")
+    const[adultos,setAdultos]=useState("")
+    function EnvioFormulario(evento){
+        evento.preventDefault()
+
+        let data={
+            "idHabitacion":"",
+            "fechaEntrada":"",
+            "fechaSalida":"",
+            "numeroNinos":"",
+            "numeroAdultos":""
+        }
+        console.log(entrada)
+        console.log(salida)
+        console.log(ninos)
+        console.log(adultos)
+    }
+
+    
     return(
+
         <>
-        
 
-            <form>
             <div className="row">
-                <div className="col-12 col-md-8 text-light">
-                    <h1>Reserva con nosotros</h1>
-                    <h5>Los precios más económicos del mercado</h5>
-                    <h5>Reserva ya</h5>
+                <div className="col-12">
+                    <form className=""onSubmit={EnvioFormulario}>
+
+                        <div className="row">
+                            <div className="col-12 col-md-8 text-white">
+                                <h4>RESERVA CON NOSTROS</h4>
+                                <h5>Los precios mas econocmicos del mercado</h5>
+                                <h5> Reserva ya !!!</h5>
+                                <h5> Desde $350.000 COP</h5>
+                                <hr></hr>
+                            </div>
+                        </div>
+
+                        <div className="row text-white fw-bold">
+                            <div className="col-12 col-md-4">
+                                <label className="form-label">Fecha entrada</label>
+                                <div className="input-group mb-3">
+                                    <span className="input-group-text"><i className="bi bi-calendar2-date"></i></span>
+                                    <input 
+                                    type="Date" 
+                                    className="form-control shadow"
+                                    onChange={(evento)=>{
+                                        setEntrada(evento.target.value)
+                                    }}
+                                    value={entrada}/>
+                                </div>
+                            </div>
+                            <div className="col-12 col-md-4">
+                                <label className="form-label">Fecha Salida</label>
+                                <div className="input-group mb-3">
+                                    <span className="input-group-text"><i className="bi bi-calendar2-date"></i></span>
+                                    <input 
+                                    type="Date" 
+                                    className="form-control shadow"
+                                    onChange={(evento)=>{
+                                        setSalida(evento.target.value)
+                                    }}
+                                    value={salida}
+                                    />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="row text-white fw-bold">
+                            <div className="col-12 col-md-4">
+                                <label className="form-label">Numero Adultos</label>
+                                <div className="input-group mb-3">
+                                    <span className="input-group-text"><i className="bi bi-person-fill"></i></span>
+                                    <select 
+                                        className="form-select"
+                                        type="Date" 
+                                        onChange={(evento)=>{
+                                        setAdultos(evento.target.value)
+                                    }}
+                                    value={adultos}
+                                    defaultValue="0"
+                                        >
+                                        <option value="1">---</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div className="col-12 col-md-4">
+                                <label className="form-label">Numero Niños</label>
+                                <div className="input-group mb-3">
+                                    <span className="input-group-text"><i className="bi bi-person-fill"></i></span>
+                                    <select
+                                        className="form-select"
+                                        type="Date"
+                                        onChange={(evento) => {
+                                            setNinos(evento.target.value)
+                                        }}
+                                        value={ninos}
+                                        defaultValue="0"
+                                        >
+                                        <option value="1">---</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                    </select>
+                                </div>
+                                
+                            </div>
+                            
+                        </div>
+                        <button type="submit" className="btn btn-primary">Reserva</button>
+                    </form>
                 </div>
-            </div>      
-                <div className="row text-light fw-bold">
-                    <div className="col-12 col-md-4 ">
-                    <label>Fecha Entrada</label>
-                    <div className="input-group mb-3">
-                    <span className="input-group-text"><i ClassName="bi bi-calendar3"></i></span>
-                    <input type="date" className="form-control" placeholder="Fecha Reserva" ></input>
-                        </div>
+            </div>
 
-                    </div>
-                    
-                    <div className="col-12 col-md-4 ">
-                    <label>Fecha Salida</label>
-                    <div className="input-group mb-3">
-                    <span className="input-group-text"><i className="bi bi-calendar3"></i></span>
-                    <input type="date" className="form-control" placeholder="Fecha Reserva" ></input>
-                        </div>
-
-                    </div>
-
-                    
-                    
-                </div>
-                
-                <div className="row">
-                <div className="col-12 col-md-4 text-light fw-bold">
-                    <label>Numero adultos</label>
-                    <div className="input-group mb-3">
-                    <span className="input-group-text"><i className="bi bi-file-person"></i></span>
-                    <input type="number" className="form-control" placeholder="Fecha Reserva" ></input>
-                        </div>
-
-                    </div>
-                    
-                    <div className="col-12 col-md-4 text-light fw-bold">
-                    <label>Numero niños</label>
-                    <div className="input-group mb-3">
-                    <span className="input-group-text"><i className="bi bi-file-person"></i></span>
-                    <input type="number" className="form-control" placeholder="Fecha Reserva" ></input>
-                    
-                        </div>
-
-                    </div>
-
-                   
-                </div>
-
-                <button type="button" className="btn btn-info">Enviar</button>
-            </form>
-        
-        
-        
-        
+            
         
         </>
+
     )
+
+
 }

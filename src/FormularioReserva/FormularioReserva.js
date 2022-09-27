@@ -1,5 +1,8 @@
 import { useState } from "react"
 import { ServicioReserva } from "../services/ServicioReserva"
+
+import Swal from 'sweetalert2'
+
 export function FormularioReserva(){
 
     const[entrada,setEntrada]=useState("")
@@ -10,16 +13,26 @@ export function FormularioReserva(){
         evento.preventDefault()
 
         let data={
-            "idHabitacion":"",
-            "fechaEntrada":"",
-            "fechaSalida":"",
-            "numeroNinos":"",
-            "numeroAdultos":""
+            "idHabitacion":"6321ef745a1931ff38e7c2c3",
+            "fechaEntrada":entrada,
+            "fechaSalida":salida,
+            "numeroNinos":ninos,
+            "numeroAdultos":adultos
         }
-        console.log(entrada)
-        console.log(salida)
-        console.log(ninos)
-        console.log(adultos)
+
+        ServicioReserva(data)
+        .then(function(respuesta){
+
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: respuesta.mensaje,
+                showConfirmButton: false,
+                timer: 1500
+              })
+            console.log(respuesta);
+        })
+       
     }
 
     
@@ -85,7 +98,7 @@ export function FormularioReserva(){
                                     value={adultos}
                                     defaultValue="0"
                                         >
-                                        <option value="1">---</option>
+                                        <option value="0">---</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -105,7 +118,7 @@ export function FormularioReserva(){
                                         value={ninos}
                                         defaultValue="0"
                                         >
-                                        <option value="1">---</option>
+                                        <option value="0">---</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>

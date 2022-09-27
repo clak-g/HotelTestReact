@@ -44,21 +44,20 @@ export function Habitaciones(){
 
 
                     return(
-                        <div > 
+                        <div> 
                            
                             
 
                             <div class="col">
-                            <div className="card tarjeta"> 
-                            <img  className="h-199" src= {habitacion.imagenes[0]}></img>
-                            <div class="card-body">
-                            <h5 class="card-title">{habitacion.nombre}</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                             <a href="#" class="btn btn-primary">Go somewhere</a>
+                                <div className="card tarjeta"> 
+                                    <img  className="h-100" src= {habitacion.imagenes[0]}></img>
+                                    <div class="card-body">
+                                        <h5 class="card-title">{habitacion.nombre}</h5>
+                                        <p class="card-text">¡Reserva tu habitacion ahora!</p>
+                                        <a href="#" class="btn btn-primary">Reserva Aquí</a>
+                                    </div>
+                                </div>
                             </div>
-
-</div>
-</div>
 
 
 

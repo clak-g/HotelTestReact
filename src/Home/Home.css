@@ -20,3 +20,16 @@
         width: 100%;
         height: 100%;
     }
+
+
+    .contenedor{
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.6),
+            rgba(0, 0, 0, 0.9)
+          ), url(https://firebasestorage.googleapis.com/v0/b/hoteltestfront.appspot.com/o/hotel-1.jpg?alt=media&token=286258f7-455d-47a1-afe1-938c6d747dec);
+        }
+    
